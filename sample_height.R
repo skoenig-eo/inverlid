@@ -11,37 +11,70 @@ trees
 
 go_catch <- st_read("GO_catch.shp") %>% 
   st_intersection(trees) %>% 
-  st_drop_geometry() %>% 
-  mutate(Type = "go_catch")
+  st_drop_geometry() %>%
+  as_tibble() %>% 
+  mutate(Type = "go_catch") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_catch.csv")
+
 go_stream <- st_read("GO_StreamB50.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry()%>% 
-  mutate(Type = "go_stream")
+  as_tibble() %>% 
+  mutate(Type = "go_stream") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_stream.csv")
+
 go_100 <- st_read("GO_100mB50.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry()%>% 
-  mutate(Type = "go_100")
+  as_tibble() %>% 
+  mutate(Type = "go_100") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_100.csv")
+
 go_500 <- st_read("GO_500mB50.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry()%>% 
-  mutate(Type = "go_500")
+  as_tibble() %>% 
+  mutate(Type = "go_500") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_500.csv")
 
 vy_catch <- st_read("VY_catch.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry()%>% 
-  mutate(Type = "vy_catch")
+  mutate(Type = "vy_catch") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_catch.csv")
+rm(vy_catch)
+gc()
+
 vy_stream <- st_read("VY_StreamB50.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry()%>% 
-  mutate(Type = "vy_stream")
+  as_tibble() %>% 
+  mutate(Type = "vy_stream") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_stream.csv")
+rm(vy_stream)
+gc()
+
 vy_100 <- st_read("VY_100mB50.shp") %>% 
   st_intersection(trees) %>% 
-  st_drop_geometry()%>% 
-  mutate(Type = "vy_100")
+  st_drop_geometry()%>%
+  as_tibble() %>% 
+  mutate(Type = "vy_100") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_100.csv")
+
 vy_500 <- st_read("VY_500mB50.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry()%>% 
-  mutate(Type = "vy_500")
+  as_tibble() %>% 
+  mutate(Type = "vy_500") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_500.csv")
 
 
 # max_catch <- go_catch %>% 
