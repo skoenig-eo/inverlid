@@ -15,14 +15,14 @@ vy_100 <- st_read("VY_100mB50.shp")
 vy_500 <- st_read("VY_500mB50.shp")
 
 trees <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/all_blocks_fixed.gpkg")
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/all_blocks_fixed_clipped.gpkg")
 trees
 
-max_catch <- go_catch %>% 
-  bind_rows(vy_catch) %>% 
-  st_union() %>% 
-  st_buffer(dist = 1000)
-plot(max_catch)
-
-tree_clip <- st_intersection(trees, max_catch)
-st_is_valid(trees)
+# max_catch <- go_catch %>% 
+#   bind_rows(vy_catch) %>% 
+#   st_union() %>% 
+#   st_buffer(dist = 1000)
+# plot(max_catch)
+# 
+# tree_clip <- st_intersection(trees, max_catch)
+# st_is_valid(trees)
