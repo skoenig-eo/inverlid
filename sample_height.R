@@ -92,9 +92,10 @@ vy_500 <- st_read("VY_500mB50.shp") %>%
 Sys.time()
 
 # use already clipped file because it takes too long otherwise
-vy_stream <- st_read("vy_stream.gpkg") %>% 
-  st_intersection(trees) %>%
-  mutate(Crown_Area = st_area(geometry)) %>% 
+trees2 <- st_read("vy_stream.gpkg")
+vy_stream <- st_read("VY_StreamB50.shp") %>% 
+  st_intersection(trees2) %>%
+  mutate(Crown_Area = st_area(geom)) %>% 
   st_drop_geometry()%>% 
   as_tibble() %>% 
   mutate(Type = "vy_stream") %>% 
