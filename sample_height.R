@@ -1,14 +1,19 @@
+## script extracting tree height information out of tree crown delineations
+## for all four types of AOI, Große Ohe & Vydra catchments
+## last change: 2021-06-17
+
 library(sf)
 library(tidyverse)
 
 setwd("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons")
 list.files(pattern = "\\.shp$")
 
+# load tree crown delineations
 trees <- st_read(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/all_blocks_fixed_clipped.gpkg")
 trees
 
-
+## Große Ohe
 go_catch <- st_read("GO_catch.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry() %>%
@@ -41,14 +46,13 @@ go_500 <- st_read("GO_500mB50.shp") %>%
   write_csv(
     "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_500.csv")
 
+## Vydra
 vy_catch <- st_read("VY_catch.shp") %>% 
   st_intersection(trees) %>% 
   st_drop_geometry()%>% 
   mutate(Type = "vy_catch") %>% 
   write_csv(
     "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_catch.csv")
-rm(vy_catch)
-gc()
 
 # use already clipped file because it takes too long otherwise
 vy_stream <- st_read("vy_stream.gpkg") %>% 
@@ -57,8 +61,6 @@ vy_stream <- st_read("vy_stream.gpkg") %>%
   mutate(Type = "vy_stream") %>% 
   write_csv(
     "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_stream.csv")
-rm(vy_stream)
-gc()
 
 vy_100 <- st_read("VY_100mB50.shp") %>% 
   st_intersection(trees) %>% 
