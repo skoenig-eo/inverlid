@@ -50,8 +50,8 @@ vy_catch <- st_read("VY_catch.shp") %>%
 rm(vy_catch)
 gc()
 
-vy_stream <- st_read("VY_StreamB50.shp") %>% 
-  st_intersection(trees) %>% 
+# use already clipped file because it takes too long otherwise
+vy_stream <- st_read("vy_stream.gpkg") %>% 
   st_drop_geometry()%>% 
   as_tibble() %>% 
   mutate(Type = "vy_stream") %>% 
