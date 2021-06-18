@@ -17,13 +17,17 @@ go_100_meas_full <- go_100 %>%
             Biomass_max_full = max(CROWN_VOL, na.rm = TRUE),
             Biomass_ave_full = mean(CROWN_VOL, na.rm = TRUE),
             Biomass_med_full = median(CROWN_VOL, na.rm = TRUE),
-            Biomass_std_full = sd(CROWN_VOL, na.rm = TRUE))
+            Biomass_std_full = sd(CROWN_VOL, na.rm = TRUE),
+            Crown_sum_full = sum(Crown_Area, na.rm = TRUE),
+            Crown_max_full = max(Crown_Area, na.rm = TRUE),
+            Crown_ave_full = mean(Crown_Area, na.rm = TRUE),
+            Crown_med_full = median(Crown_Area, na.rm = TRUE),
+            Crown_std_full = sd(Crown_Area, na.rm = TRUE)) 
 
 go_100_meas_nodw <- go_100 %>% 
   filter(TREE_CLASS %in% c("conif", "decid")) %>% 
   group_by(LocCode) %>% 
-  summarise(Count_nowdw = n(),
-            Height_max_nodw = max(HEIGHT, na.rm = TRUE),
+  summarise(Height_max_nodw = max(HEIGHT, na.rm = TRUE),
             Height_ave_nodw = mean(HEIGHT, na.rm = TRUE),
             Height_med_nodw = median(HEIGHT, na.rm = TRUE),
             Height_std_nodw = sd(HEIGHT, na.rm = TRUE),
@@ -31,7 +35,12 @@ go_100_meas_nodw <- go_100 %>%
             Biomass_max_nodw = max(CROWN_VOL, na.rm = TRUE),
             Biomass_ave_nodw = mean(CROWN_VOL, na.rm = TRUE),
             Biomass_med_nodw = median(CROWN_VOL, na.rm = TRUE),
-            Biomass_std_nodw = sd(CROWN_VOL, na.rm = TRUE))
+            Biomass_std_nodw = sd(CROWN_VOL, na.rm = TRUE),
+            Crown_sum_nodw = sum(Crown_Area, na.rm = TRUE),
+            Crown_max_nodw = max(Crown_Area, na.rm = TRUE),
+            Crown_ave_nodw = mean(Crown_Area, na.rm = TRUE),
+            Crown_med_nodw = median(Crown_Area, na.rm = TRUE),
+            Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 go_100_meas_conif <- go_100 %>% 
   filter(TREE_CLASS %in% c("conif", "decid")) %>% 
@@ -44,7 +53,12 @@ go_100_meas_conif <- go_100 %>%
             Biomass_max_conif = max(CROWN_VOL, na.rm = TRUE),
             Biomass_ave_conif = mean(CROWN_VOL, na.rm = TRUE),
             Biomass_med_conif = median(CROWN_VOL, na.rm = TRUE),
-            Biomass_std_conif = sd(CROWN_VOL, na.rm = TRUE))
+            Biomass_std_conif = sd(CROWN_VOL, na.rm = TRUE),
+            Crown_sum_conif = sum(Crown_Area, na.rm = TRUE),
+            Crown_max_conif = max(Crown_Area, na.rm = TRUE),
+            Crown_ave_conif = mean(Crown_Area, na.rm = TRUE),
+            Crown_med_conif = median(Crown_Area, na.rm = TRUE),
+            Crown_std_conif = sd(Crown_Area, na.rm = TRUE))
 
 go_100_meas_decid <- go_100 %>% 
   filter(TREE_CLASS %in% c("decid", "decid")) %>% 
@@ -57,7 +71,12 @@ go_100_meas_decid <- go_100 %>%
             Biomass_max_decid = max(CROWN_VOL, na.rm = TRUE),
             Biomass_ave_decid = mean(CROWN_VOL, na.rm = TRUE),
             Biomass_med_decid = median(CROWN_VOL, na.rm = TRUE),
-            Biomass_std_decid = sd(CROWN_VOL, na.rm = TRUE))
+            Biomass_std_decid = sd(CROWN_VOL, na.rm = TRUE),
+            Crown_sum_decid = sum(Crown_Area, na.rm = TRUE),
+            Crown_max_decid = max(Crown_Area, na.rm = TRUE),
+            Crown_ave_decid = mean(Crown_Area, na.rm = TRUE),
+            Crown_med_decid = median(Crown_Area, na.rm = TRUE),
+            Crown_std_decid = sd(Crown_Area, na.rm = TRUE))
 
 go_100_share <- go_100 %>% 
   group_by(LocCode, TREE_CLASS) %>% 
