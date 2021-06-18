@@ -16,7 +16,7 @@ sizes_go <- areas[[1]] %>%
   left_join(areas[[2]], "LocCode") %>% 
   left_join(areas[[3]], "LocCode") %>% 
   left_join(areas[[4]], "LocCode") %>% 
-  rename(LocCode = 1, vy_100 = 2, vy_500 = 3, vy_catch = 4, vy_stream = 5) %>%
+  rename(LocCode = 1, go_100 = 2, go_500 = 3, go_catch = 4, go_stream = 5) %>%
   write_csv(
     "D:/OneDrive/repositories/inverlid/sizes_go.csv"
   )
