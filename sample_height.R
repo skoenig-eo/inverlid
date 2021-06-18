@@ -102,6 +102,16 @@ vy_stream <- st_read("VY_StreamB50.shp") %>%
   write_csv(
     "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_stream.csv")
 
+Sys.time()
+
+go_stream <- st_read("GO_StreamB50.shp") %>% 
+  st_intersection(trees) %>% 
+  mutate(Crown_Area = st_area(geometry)) %>% 
+  st_drop_geometry()%>% 
+  as_tibble() %>% 
+  mutate(Type = "go_stream") %>% 
+  write_csv(
+    "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_stream.csv")
 
 # max_catch <- go_catch %>% 
 #   bind_rows(vy_catch) %>% 
