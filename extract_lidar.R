@@ -3,6 +3,9 @@ library(tidyverse)
 setwd("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted")
 dir()
 
+sizes_go <- read_csv("D:/OneDrive/repositories/inverlid/sizes_go.csv")
+sizes_vy <- read_csv("D:/OneDrive/repositories/inverlid/sizes_vy.csv")
+
 go_100 <- read_csv("go_100.csv")
 nrow(go_100)
 
@@ -22,7 +25,7 @@ go_100_meas_full <- go_100 %>%
             Crown_max_full = max(Crown_Area, na.rm = TRUE),
             Crown_ave_full = mean(Crown_Area, na.rm = TRUE),
             Crown_med_full = median(Crown_Area, na.rm = TRUE),
-            Crown_std_full = sd(Crown_Area, na.rm = TRUE)) 
+            Crown_std_full = sd(Crown_Area, na.rm = TRUE))
 
 go_100_meas_nodw <- go_100 %>% 
   filter(TREE_CLASS %in% c("conif", "decid")) %>% 
@@ -93,12 +96,18 @@ go_100_share <- go_100 %>%
   relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
 
 
-go_100_result <- go_100_meas_full %>% 
-  left_join(go_100_share, by = "LocCode") %>% 
+go_100_result <- sizes_go %>% 
+  select(LocCode, go_100) %>% 
+  rename(Area = 2) %>% 
+  left_join(go_100_meas_full) %>% 
+  left_join(go_100_meas_nodw) %>% 
+  left_join(go_100_meas_conif) %>% 
+  left_join(go_100_meas_decid) %>% 
+  left_join(go_100_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
-         Share_snags = Count_snags/Count_full) %>% 
-  left_join(go_100_meas_nodw, by = "LocCode") %>% 
-  left_join(go_100_meas_conif, by = "LocCode") %>% 
-  left_join(go_100_meas_decid, by = "LocCode")
+         Share_snags = Count_snags/Count_full,
+         Cover_full = Crown_sum_full/Area,
+         Cover_conif = Crown_sum_conif/Area,
+         Cover_decid = Crown_sum_decid/Area)
