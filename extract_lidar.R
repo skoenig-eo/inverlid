@@ -111,7 +111,9 @@ go_100_result <- sizes_go %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "GO",
+         Class = "100")
 
 
 ## GO 500
@@ -219,7 +221,9 @@ go_500_result <- sizes_go %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "GO",
+         Class = "500")
 
 ## GO 100
 go_stream <- read_csv("go_stream.csv")
@@ -326,7 +330,9 @@ go_stream_result <- sizes_go %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "GO",
+         Class = "Stream")
 
 ## GO 100
 go_catch <- read_csv("go_catch.csv")
@@ -433,7 +439,9 @@ go_catch_result <- sizes_go %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "GO",
+         Class = "Catchment")
 
 
 ## vy 100
@@ -541,7 +549,9 @@ vy_100_result <- sizes_vy %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "VY",
+         Class = "100")
 
 
 ## vy 500
@@ -649,7 +659,9 @@ vy_500_result <- sizes_vy %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "VY",
+         Class = "500")
 
 ## vy 100
 vy_stream <- read_csv("vy_stream.csv")
@@ -756,7 +768,9 @@ vy_stream_result <- sizes_vy %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "VY",
+         Class = "Stream")
 
 ## vy 100
 vy_catch <- read_csv("vy_catch.csv")
@@ -863,4 +877,6 @@ vy_catch_result <- sizes_vy %>%
          Share_snags = Count_snags/Count_full,
          Cover_full = Crown_sum_full/Area,
          Cover_conif = Crown_sum_conif/Area,
-         Cover_decid = Crown_sum_decid/Area)
+         Cover_decid = Crown_sum_decid/Area,
+         River = "VY",
+         Class = "Catch")
