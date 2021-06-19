@@ -880,3 +880,8 @@ vy_catch_result <- sizes_vy %>%
          Cover_decid = Crown_sum_decid/Area,
          River = "VY",
          Class = "Catch")
+
+total_result <- bind_rows(go_100_result, go_500_result,
+                          go_stream_result, vy_catch_result,
+                          vy_100_result, go_500_result,
+                          vy_stream_result, vy_catch_result)
