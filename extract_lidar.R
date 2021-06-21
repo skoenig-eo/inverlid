@@ -885,3 +885,5 @@ total_result <- bind_rows(go_100_result, go_500_result,
                           go_stream_result, vy_catch_result,
                           vy_100_result, go_500_result,
                           vy_stream_result, vy_catch_result)
+
+write_csv(total_result, "D:/OneDrive/repositories/inverlid/results_01.csv")
