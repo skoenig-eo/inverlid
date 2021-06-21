@@ -68,7 +68,7 @@ go_500 <- st_read("GO_500mB50.shp") %>%
   as_tibble() %>% 
   mutate(Total_Area = as.numeric(Total_Area)) %>% 
   pivot_wider(names_from = Class_broad, values_from = Total_Area) %>% 
-  select(LocCode, Coniferous, Deciduous, Deadwood, Mixed, Clearcut, Meadow, Shrub) %>% 
+  select(LocCode, Coniferous, Deciduous, Deadwood, Mixed, Clearcut, Meadow) %>% 
   left_join(sizes_go %>% select(LocCode, go_500)) %>% 
   rename(Area = go_500) %>%
   transmute(LocCode = LocCode,
@@ -78,11 +78,10 @@ go_500 <- st_read("GO_500mB50.shp") %>%
             AS_Mixed = Mixed/Area,
             AS_Clearcut = Clearcut/Area,
             AS_Meadow = Meadow/Area,
-            AS_Shrub = Shrub/Area,
             River = "GO",
             Class = "500")
 
-go_stream <- st_read("GO_stream.shp") %>% 
+go_stream <- st_read("GO_streamB50.shp") %>% 
   st_transform(crs = st_crs(habitats)) %>% 
   st_intersection(habitats) %>% 
   mutate(Area = st_area(geometry)) %>% 
@@ -104,7 +103,7 @@ go_stream <- st_read("GO_stream.shp") %>%
             AS_Meadow = Meadow/Area,
             AS_Shrub = Shrub/Area,
             River = "GO",
-            Class = "stream")
+            Class = "Stream")
 
 go_catch <- st_read("GO_catch.shp") %>% 
   st_transform(crs = st_crs(habitats)) %>% 
@@ -130,3 +129,4 @@ go_catch <- st_read("GO_catch.shp") %>%
             River = "GO",
             Class = "Catch")
 
+go_results <- bind_rows(go_100, go_500, go_stream, go_catch)
