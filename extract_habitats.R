@@ -129,4 +129,5 @@ go_catch <- st_read("GO_catch.shp") %>%
             River = "GO",
             Class = "Catch")
 
-go_results <- bind_rows(go_100, go_500, go_stream, go_catch)
+go_results <- bind_rows(go_100, go_500, go_stream, go_catch) %>% 
+  write_csv("D:/OneDrive/repositories/inverlid/habitat_results.csv")
