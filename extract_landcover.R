@@ -31,6 +31,22 @@ go_catch <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/rasters/s2lc
   extract(st_read("GO_catch.shp")) %>% 
   lapply(make_table)
 
+vy_100 <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/rasters/s2lc_reprojected.tif") %>% 
+  extract(st_read("VY_100mB50.shp")) %>% 
+  lapply(make_table)
+
+vy_500 <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/rasters/s2lc_reprojected.tif") %>% 
+  extract(st_read("VY_500mB50.shp")) %>% 
+  lapply(make_table)
+
+vy_stream <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/rasters/s2lc_reprojected.tif") %>% 
+  extract(st_read("VY_StreamB50.shp")) %>% 
+  lapply(make_table)
+
+vy_catch <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/rasters/s2lc_reprojected.tif") %>% 
+  extract(st_read("VY_catch.shp")) %>% 
+  lapply(make_table)
+
 go_100[[1]] %>% 
   as_factor() %>% 
   table() %>%
