@@ -103,6 +103,13 @@ vy_catch <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/rasters/s2lc
   mutate(River = "VY",
          Class = "Catch")
 
+landcover_result <- bind_rows(
+  go_100, go_500, go_stream, go_catch,
+  vy_100, vy_500, vy_stream, vy_catch) %>% 
+  rename(Cultivated = 1, Deciduous = 2, Coniferous = 3, Marshes = 4,
+         Peatbogs = 5, Herbaceous = 6, Water = 7, Built_up = 12) %>% 
+  write_csv("D:/OneDrive/repositories/inverlid/landcover_results.csv")
+
 
 # go_100 %>% 
 #   dplyr::select(-column_label) %>% 
