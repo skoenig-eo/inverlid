@@ -1,3 +1,7 @@
+## compute measures from lidar data
+## for all four types of AOI, Große Ohe & Vydra catchments
+## last change: 2021-06-23
+
 library(tidyverse)
 
 setwd("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted")
@@ -10,6 +14,7 @@ sizes_vy <- read_csv("D:/OneDrive/repositories/inverlid/sizes_vy.csv")
 go_100 <- read_csv("go_100.csv")
 nrow(go_100)
 
+# full data
 go_100_meas_full <- go_100 %>% 
   group_by(LocCode) %>% 
   summarise(Count_full = n(),
