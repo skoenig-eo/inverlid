@@ -125,3 +125,8 @@ go_catch_result <- cover %>%
   dplyr::select(-c(Count_shrub, Count_understory)) %>% 
   rename(Count = Count_cover)
 
+go_result <- go_100_result %>% 
+  bind_rows(go_500_result) %>% 
+  bind_rows(go_stream_result) %>% 
+  bind_rows(go_catch_result) %>% 
+  write_csv("D:/OneDrive/repositories/inverlid/understory_result_go.csv")
