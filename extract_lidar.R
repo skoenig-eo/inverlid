@@ -1,6 +1,6 @@
 ## compute measures from lidar data
 ## for all four types of AOI, Große Ohe & Vydra catchments
-## last change: 2021-06-23
+## last change: 2021-06-30
 
 library(tidyverse)
 
@@ -114,7 +114,7 @@ go_100_result <- sizes_go %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "GO",
@@ -224,7 +224,7 @@ go_500_result <- sizes_go %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "GO",
@@ -333,7 +333,7 @@ go_stream_result <- sizes_go %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "GO",
@@ -442,7 +442,7 @@ go_catch_result <- sizes_go %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "GO",
@@ -552,7 +552,7 @@ vy_100_result <- sizes_vy %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "VY",
@@ -662,7 +662,7 @@ vy_500_result <- sizes_vy %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "VY",
@@ -771,7 +771,7 @@ vy_stream_result <- sizes_vy %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "VY",
@@ -880,7 +880,7 @@ vy_catch_result <- sizes_vy %>%
          Share_decid = Count_decid/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
-         Cover_full = Crown_sum_full/Area,
+         Cover_nodw = Crown_sum_nodw/Area,
          Cover_conif = Crown_sum_conif/Area,
          Cover_decid = Crown_sum_decid/Area,
          River = "VY",
