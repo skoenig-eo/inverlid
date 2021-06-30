@@ -52,7 +52,7 @@ go_100_meas_nodw <- go_100 %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 go_100_meas_conif <- go_100 %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
@@ -162,7 +162,7 @@ go_500_meas_nodw <- go_500 %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 go_500_meas_conif <- go_500 %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
@@ -271,7 +271,7 @@ go_stream_meas_nodw <- go_stream %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 go_stream_meas_conif <- go_stream %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
@@ -380,7 +380,7 @@ go_catch_meas_nodw <- go_catch %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 go_catch_meas_conif <- go_catch %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
@@ -490,7 +490,7 @@ vy_100_meas_nodw <- vy_100 %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 vy_100_meas_conif <- vy_100 %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
@@ -600,7 +600,7 @@ vy_500_meas_nodw <- vy_500 %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 vy_500_meas_conif <- vy_500 %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
@@ -709,7 +709,7 @@ vy_stream_meas_nodw <- vy_stream %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 vy_stream_meas_conif <- vy_stream %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
@@ -818,7 +818,7 @@ vy_catch_meas_nodw <- vy_catch %>%
             Crown_std_nodw = sd(Crown_Area, na.rm = TRUE))
 
 vy_catch_meas_conif <- vy_catch %>% 
-  filter(TREE_CLASS %in% c("conif", "decid")) %>% 
+  filter(TREE_CLASS %in% c("conif")) %>% 
   group_by(LocCode) %>% 
   summarise(Height_max_conif = max(HEIGHT, na.rm = TRUE),
             Height_ave_conif = mean(HEIGHT, na.rm = TRUE),
