@@ -1038,3 +1038,14 @@ vy_stream_result <- bind_cols(vy_stream_cover, vy_stream_shrub, vy_stream_under)
   mutate(River = "VY",
          Class = "Stream") %>% 
   bind_cols(vy_100 %>% select(LocCode))
+
+result <- bind_rows(
+  go_100_result,
+  go_500_result,
+  go_catch_result,
+  go_stream_result,
+  vy_100_result,
+  vy_500_result,
+  vy_catch_result,
+  vy_stream_result
+)
