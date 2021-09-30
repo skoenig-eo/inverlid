@@ -1,0 +1,57 @@
+library(raster)
+library(sf)
+library(tidyverse)
+
+setwd("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons")
+
+ref_crs <- st_read("GO_100mB50.shp") %>% st_crs()
+
+cover <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/Cover_full.tif")
+crs(cover) <- ref_crs
+
+shrub <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/Shrub_full.tif")
+crs(shrub) <- ref_crs
+
+under <- raster("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/Under_full.tif")
+crs(under) <- ref_crs
+
+go_100 <- st_read("GO_100mB50.shp")
+
+go_100_cover <- cover %>% 
+  raster::extract(go_100) %>% 
+  lapply(mean) %>% 
+  unlist() %>% 
+  as_tibble() %>% 
+  rename(Mean_cover = 1) %>% 
+  bind_cols(
+    cover %>% 
+      raster::extract(go_100) %>% 
+      lapply(median) %>% 
+      unlist() %>% 
+      as_tibble()
+  ) %>% 
+  rename(Median_cover = 2) %>% 
+  bind_cols(
+    cover %>% 
+      raster::extract(go_100) %>% 
+      lapply(max) %>% 
+      unlist() %>% 
+      as_tibble()
+  ) %>% 
+  rename(Max_cover = 3) %>% 
+  bind_cols(
+    cover %>% 
+      raster::extract(go_100) %>% 
+      lapply(min) %>% 
+      unlist() %>% 
+      as_tibble()
+  ) %>% 
+  rename(Min_cover = 4) %>% 
+  bind_cols(
+    cover %>% 
+      raster::extract(go_100) %>% 
+      lapply(sd) %>% 
+      unlist() %>% 
+      as_tibble()
+  ) %>% 
+  rename(Sd_cover = 5)
