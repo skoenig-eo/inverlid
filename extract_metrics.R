@@ -908,7 +908,7 @@ vy_catch_under <- under %>%
   rename(Sd_under = 5)
 
 vy_catch_result <- bind_cols(vy_catch_cover, vy_catch_shrub, vy_catch_under) %>%
-  mutate(River = "GO",
+  mutate(River = "VY",
          Class = "Catchment") %>% 
   bind_cols(vy_100 %>% select(LocCode))
 
@@ -1035,6 +1035,6 @@ go_stream_under <- under %>%
   rename(Sd_under = 5)
 
 go_stream_result <- bind_cols(go_stream_cover, go_stream_shrub, go_stream_under) %>%
-  mutate(River = "GO",
+  mutate(River = "VY",
          Class = "Stream") %>% 
-  bind_cols(go_100 %>% select(LocCode))
+  bind_cols(vy_100 %>% select(LocCode))
