@@ -1,3 +1,7 @@
+## fill gaps in the 10 m Lidar metric rasters w/ the 100 m counterparts
+## and remove values above 1 and below 0
+## last change: 2021-09-30
+
 library(raster)
 
 # Cover
