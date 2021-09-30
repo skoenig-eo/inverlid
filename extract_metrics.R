@@ -914,18 +914,18 @@ vy_catch_result <- bind_cols(vy_catch_cover, vy_catch_shrub, vy_catch_under) %>%
 
 
 
-## GO Catch
-go_stream <- st_read("GO_StreamB50.shp")
+## VY Stream
+vy_stream <- st_read("VY_StreamB50.shp")
 
-go_stream_cover <- cover %>% 
-  raster::extract(go_stream) %>% 
+vy_stream_cover <- cover %>% 
+  raster::extract(vy_stream) %>% 
   lapply(mean, na.rm = TRUE) %>% 
   unlist() %>% 
   as_tibble() %>% 
   rename(Mean_cover = 1) %>% 
   bind_cols(
     cover %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(median, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -933,7 +933,7 @@ go_stream_cover <- cover %>%
   rename(Median_cover = 2) %>% 
   bind_cols(
     cover %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(max, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -941,7 +941,7 @@ go_stream_cover <- cover %>%
   rename(Max_cover = 3) %>% 
   bind_cols(
     cover %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(min, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -949,22 +949,22 @@ go_stream_cover <- cover %>%
   rename(Min_cover = 4) %>% 
   bind_cols(
     cover %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(sd, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
   ) %>% 
   rename(Sd_cover = 5)
 
-go_stream_shrub <- shrub %>% 
-  raster::extract(go_stream) %>% 
+vy_stream_shrub <- shrub %>% 
+  raster::extract(vy_stream) %>% 
   lapply(mean, na.rm = TRUE) %>% 
   unlist() %>% 
   as_tibble() %>% 
   rename(Mean_shrub = 1) %>% 
   bind_cols(
     shrub %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(median, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -972,7 +972,7 @@ go_stream_shrub <- shrub %>%
   rename(Median_shrub = 2) %>% 
   bind_cols(
     shrub %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(max, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -980,7 +980,7 @@ go_stream_shrub <- shrub %>%
   rename(Max_shrub = 3) %>% 
   bind_cols(
     shrub %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(min, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -988,22 +988,22 @@ go_stream_shrub <- shrub %>%
   rename(Min_shrub = 4) %>% 
   bind_cols(
     shrub %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(sd, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
   ) %>% 
   rename(Sd_shrub = 5)
 
-go_stream_under <- under %>% 
-  raster::extract(go_stream) %>% 
+vy_stream_under <- under %>% 
+  raster::extract(vy_stream) %>% 
   lapply(mean, na.rm = TRUE) %>% 
   unlist() %>% 
   as_tibble() %>% 
   rename(Mean_under = 1) %>% 
   bind_cols(
     under %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(median, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -1011,7 +1011,7 @@ go_stream_under <- under %>%
   rename(Median_under = 2) %>% 
   bind_cols(
     under %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(max, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -1019,7 +1019,7 @@ go_stream_under <- under %>%
   rename(Max_under = 3) %>% 
   bind_cols(
     under %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(min, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
@@ -1027,14 +1027,14 @@ go_stream_under <- under %>%
   rename(Min_under = 4) %>% 
   bind_cols(
     under %>% 
-      raster::extract(go_stream) %>% 
+      raster::extract(vy_stream) %>% 
       lapply(sd, na.rm = TRUE) %>% 
       unlist() %>% 
       as_tibble()
   ) %>% 
   rename(Sd_under = 5)
 
-go_stream_result <- bind_cols(go_stream_cover, go_stream_shrub, go_stream_under) %>%
+vy_stream_result <- bind_cols(vy_stream_cover, vy_stream_shrub, vy_stream_under) %>%
   mutate(River = "VY",
          Class = "Stream") %>% 
   bind_cols(vy_100 %>% select(LocCode))
