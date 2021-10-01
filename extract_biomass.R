@@ -63,3 +63,160 @@ go_100 <- read_csv(
          Class = "100")
 
 
+go_500 <- read_csv(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_500.csv") %>% 
+  mutate(
+    BHD = case_when(
+      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
+      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TRUE~NA_real_)) %>% 
+  rowwise() %>% 
+  mutate(
+    Biomass = case_when(
+      TREE_CLASS == "conif" ~ v.GRI(1, BHD, HEIGHT),
+      TREE_CLASS == "decid" ~ v.GRI(5, BHD, HEIGHT))) %>% 
+  ungroup() %>% 
+  group_by(LocCode) %>% 
+  summarise(Mean_Biomass = mean(Biomass, na.rm = TRUE),
+            Median_Biomass = median(Biomass, na.rm = TRUE),
+            Max_Biomass = max(Biomass, na.rm = TRUE),
+            Min_Biomass = min(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+  mutate(River = "GO",
+         Class = "500")
+
+go_catch <- read_csv(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_catch.csv") %>% 
+  mutate(
+    BHD = case_when(
+      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
+      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TRUE~NA_real_)) %>% 
+  rowwise() %>% 
+  mutate(
+    Biomass = case_when(
+      TREE_CLASS == "conif" ~ v.GRI(1, BHD, HEIGHT),
+      TREE_CLASS == "decid" ~ v.GRI(5, BHD, HEIGHT))) %>% 
+  ungroup() %>% 
+  group_by(LocCode) %>% 
+  summarise(Mean_Biomass = mean(Biomass, na.rm = TRUE),
+            Median_Biomass = median(Biomass, na.rm = TRUE),
+            Max_Biomass = max(Biomass, na.rm = TRUE),
+            Min_Biomass = min(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+  mutate(River = "GO",
+         Class = "Catch")
+
+go_stream <- read_csv(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_stream.csv") %>% 
+  mutate(
+    BHD = case_when(
+      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
+      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TRUE~NA_real_)) %>% 
+  rowwise() %>% 
+  mutate(
+    Biomass = case_when(
+      TREE_CLASS == "conif" ~ v.GRI(1, BHD, HEIGHT),
+      TREE_CLASS == "decid" ~ v.GRI(5, BHD, HEIGHT))) %>% 
+  ungroup() %>% 
+  group_by(LocCode) %>% 
+  summarise(Mean_Biomass = mean(Biomass, na.rm = TRUE),
+            Median_Biomass = median(Biomass, na.rm = TRUE),
+            Max_Biomass = max(Biomass, na.rm = TRUE),
+            Min_Biomass = min(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+  mutate(River = "GO",
+         Class = "Stream")
+
+
+
+
+vy_100 <- read_csv(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_100.csv") %>% 
+  mutate(
+    BHD = case_when(
+      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
+      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TRUE~NA_real_)) %>% 
+  rowwise() %>% 
+  mutate(
+    Biomass = case_when(
+      TREE_CLASS == "conif" ~ v.GRI(1, BHD, HEIGHT),
+      TREE_CLASS == "decid" ~ v.GRI(5, BHD, HEIGHT))) %>% 
+  ungroup() %>% 
+  group_by(LocCode) %>% 
+  summarise(Mean_Biomass = mean(Biomass, na.rm = TRUE),
+            Median_Biomass = median(Biomass, na.rm = TRUE),
+            Max_Biomass = max(Biomass, na.rm = TRUE),
+            Min_Biomass = min(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+  mutate(River = "VY",
+         Class = "100")
+
+
+vy_500 <- read_csv(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_500.csv") %>% 
+  mutate(
+    BHD = case_when(
+      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
+      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TRUE~NA_real_)) %>% 
+  rowwise() %>% 
+  mutate(
+    Biomass = case_when(
+      TREE_CLASS == "conif" ~ v.GRI(1, BHD, HEIGHT),
+      TREE_CLASS == "decid" ~ v.GRI(5, BHD, HEIGHT))) %>% 
+  ungroup() %>% 
+  group_by(LocCode) %>% 
+  summarise(Mean_Biomass = mean(Biomass, na.rm = TRUE),
+            Median_Biomass = median(Biomass, na.rm = TRUE),
+            Max_Biomass = max(Biomass, na.rm = TRUE),
+            Min_Biomass = min(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+  mutate(River = "VY",
+         Class = "500")
+
+vy_catch <- read_csv(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_catch.csv") %>% 
+  mutate(
+    BHD = case_when(
+      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
+      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TRUE~NA_real_)) %>% 
+  rowwise() %>% 
+  mutate(
+    Biomass = case_when(
+      TREE_CLASS == "conif" ~ v.GRI(1, BHD, HEIGHT),
+      TREE_CLASS == "decid" ~ v.GRI(5, BHD, HEIGHT))) %>% 
+  ungroup() %>% 
+  group_by(LocCode) %>% 
+  summarise(Mean_Biomass = mean(Biomass, na.rm = TRUE),
+            Median_Biomass = median(Biomass, na.rm = TRUE),
+            Max_Biomass = max(Biomass, na.rm = TRUE),
+            Min_Biomass = min(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+  mutate(River = "VY",
+         Class = "Catch")
+
+vy_stream <- read_csv(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_stream.csv") %>% 
+  mutate(
+    BHD = case_when(
+      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
+      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TRUE~NA_real_)) %>% 
+  rowwise() %>% 
+  mutate(
+    Biomass = case_when(
+      TREE_CLASS == "conif" ~ v.GRI(1, BHD, HEIGHT),
+      TREE_CLASS == "decid" ~ v.GRI(5, BHD, HEIGHT))) %>% 
+  ungroup() %>% 
+  group_by(LocCode) %>% 
+  summarise(Mean_Biomass = mean(Biomass, na.rm = TRUE),
+            Median_Biomass = median(Biomass, na.rm = TRUE),
+            Max_Biomass = max(Biomass, na.rm = TRUE),
+            Min_Biomass = min(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+  mutate(River = "VY",
+         Class = "Stream")
