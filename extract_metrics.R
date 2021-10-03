@@ -1047,5 +1047,7 @@ result <- bind_rows(
   vy_100_result,
   vy_500_result,
   vy_catch_result,
-  vy_stream_result
-)
+  vy_stream_result) %>% 
+  select(-geometry)
+
+write_csv(result, "D:/OneDrive/repositories/metrics_result.csv")
