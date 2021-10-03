@@ -248,4 +248,4 @@ results <- bind_rows(
   mutate(Area = Area/10000,
          Biomass_Area = Sum_Biomass/Area)
 
-
+write_csv(results, "results_biomass.csv")
