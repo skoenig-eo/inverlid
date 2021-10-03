@@ -245,6 +245,7 @@ results <- bind_rows(
   vy_stream) %>% 
   mutate(Area = areas %>% select(Area)) %>% 
   rename(Area = 9) %>% 
-  mutate(Biomass_Area = Sum_Biomass/Area)
+  mutate(Area = Area/10000,
+         Biomass_Area = Sum_Biomass/Area)
 
 
