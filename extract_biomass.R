@@ -40,6 +40,7 @@ v.GRI <- function(art, bhd, hoehe) {
   return(as.vector(v)) # Volumen v zur?ckgeben
 }
 
+
 go_100 <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_100.csv") %>% 
   mutate(
@@ -220,3 +221,30 @@ vy_stream <- read_csv(
             Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
   mutate(River = "VY",
          Class = "Stream")
+
+sizes_go <- read_csv("D:/OneDrive/repositories/inverlid/sizes_go.csv")
+sizes_vy <- read_csv("D:/OneDrive/repositories/inverlid/sizes_vy.csv")
+
+areas <- sizes_go %>% 
+  select(2:5) %>% 
+  gather() %>% 
+  bind_rows(
+    sizes_vy %>% 
+      select(2:5) %>% 
+      gather()) %>% 
+  rename(Area = 2)
+
+results <- bind_rows(
+  go_100,
+  go_500,
+  go_catch,
+  go_stream,
+  vy_100,
+  vy_500,
+  vy_catch,
+  vy_stream) %>% 
+  mutate(Area = areas %>% select(Area)) %>% 
+  rename(Area = 9) %>% 
+  mutate(Biomass_Area = Sum_Biomass/Area)
+
+
