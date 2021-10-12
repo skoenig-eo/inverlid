@@ -45,8 +45,8 @@ go_100 <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_100.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -59,7 +59,8 @@ go_100 <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "GO",
          Class = "100")
 
@@ -68,8 +69,8 @@ go_500 <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_500.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -82,7 +83,8 @@ go_500 <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "GO",
          Class = "500")
 
@@ -90,8 +92,8 @@ go_catch <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_catch.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -104,7 +106,8 @@ go_catch <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "GO",
          Class = "Catch")
 
@@ -112,8 +115,8 @@ go_stream <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/go_stream.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -126,7 +129,8 @@ go_stream <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "GO",
          Class = "Stream")
 
@@ -137,8 +141,8 @@ vy_100 <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_100.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -151,7 +155,8 @@ vy_100 <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "VY",
          Class = "100")
 
@@ -160,8 +165,8 @@ vy_500 <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_500.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -174,7 +179,8 @@ vy_500 <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "VY",
          Class = "500")
 
@@ -182,8 +188,8 @@ vy_catch <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_catch.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -196,7 +202,8 @@ vy_catch <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "VY",
          Class = "Catch")
 
@@ -204,8 +211,8 @@ vy_stream <- read_csv(
   "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/extracted/vy_stream.csv") %>% 
   mutate(
     BHD = case_when(
-      TREE_CLASS == "conif" ~ (2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area)*100,
-      TREE_CLASS == "decid" ~ (2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area)*100,
+      TREE_CLASS == "conif" ~ exp(2.213 + 0.04064*HEIGHT + 0.00005367*CROWN_VOL + 0.006923*Crown_Area),
+      TREE_CLASS == "decid" ~ exp(2.3029989 + 0.0407713*HEIGHT -0.0006137*CROWN_VOL + 0.0077772*Crown_Area),
       TRUE~NA_real_)) %>% 
   rowwise() %>% 
   mutate(
@@ -218,7 +225,8 @@ vy_stream <- read_csv(
             Median_Biomass = median(Biomass, na.rm = TRUE),
             Max_Biomass = max(Biomass, na.rm = TRUE),
             Min_Biomass = min(Biomass, na.rm = TRUE),
-            Sum_Biomass = sum(Biomass, na.rm = TRUE))%>%
+            Std_Biomass = sd(Biomass, na.rm = TRUE),
+            Sum_Biomass = sum(Biomass, na.rm = TRUE)) %>%
   mutate(River = "VY",
          Class = "Stream")
 
@@ -232,7 +240,8 @@ areas <- sizes_go %>%
     sizes_vy %>% 
       select(2:5) %>% 
       gather()) %>% 
-  rename(Area = 2)
+  rename(Area = 2) %>%
+  pull(Area)
 
 results <- bind_rows(
   go_100,
@@ -243,9 +252,9 @@ results <- bind_rows(
   vy_500,
   vy_catch,
   vy_stream) %>% 
-  mutate(Area = areas %>% select(Area)) %>% 
-  rename(Area = 9) %>% 
+  mutate(Area = areas) %>% 
   mutate(Area = Area/10000,
-         Biomass_Area = Sum_Biomass/Area)
+         Biomass_Area = Sum_Biomass/Area) %>%
+  select(-Area)
 
 write_csv(results, "results_biomass.csv")
