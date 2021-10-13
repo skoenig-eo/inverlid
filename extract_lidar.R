@@ -230,7 +230,7 @@ go_500_result <- sizes_go %>%
          River = "GO",
          Class = "500")
 
-## GO 100
+## GO Stream
 go_stream <- read_csv("go_stream.csv")
 nrow(go_stream)
 
@@ -339,7 +339,7 @@ go_stream_result <- sizes_go %>%
          River = "GO",
          Class = "Stream")
 
-## GO 100
+## GO Catch
 go_catch <- read_csv("go_catch.csv")
 nrow(go_catch)
 
@@ -668,7 +668,7 @@ vy_500_result <- sizes_vy %>%
          River = "VY",
          Class = "500")
 
-## vy 100
+## vy Stream
 vy_stream <- read_csv("vy_stream.csv")
 nrow(vy_stream)
 
@@ -777,7 +777,7 @@ vy_stream_result <- sizes_vy %>%
          River = "VY",
          Class = "Stream")
 
-## vy 100
+## vy Catch
 vy_catch <- read_csv("vy_catch.csv")
 nrow(vy_catch)
 
@@ -887,8 +887,8 @@ vy_catch_result <- sizes_vy %>%
          Class = "Catch")
 
 total_result <- bind_rows(go_100_result, go_500_result,
-                          go_stream_result, vy_catch_result,
-                          vy_100_result, go_500_result,
+                          go_stream_result, go_catch_result,
+                          vy_100_result, vy_500_result,
                           vy_stream_result, vy_catch_result)
 
-write_csv(total_result, "D:/OneDrive/repositories/inverlid/results_01.csv")
+write_csv(total_result, "D:/OneDrive/repositories/inverlid/results_01_re.csv")
