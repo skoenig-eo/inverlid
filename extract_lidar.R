@@ -913,6 +913,6 @@ total_result <- bind_rows(go_100_result, go_500_result,
                           go_catch_result, go_stream_result,
                           vy_100_result, vy_500_result,
                           vy_catch_result, vy_stream_result) %>% 
-  replace_na(0)
+  replace(is.na(.), 0)
 
 write_csv(total_result, "D:/OneDrive/repositories/inverlid/results_02_re.csv")
