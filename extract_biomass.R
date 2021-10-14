@@ -257,4 +257,4 @@ results <- bind_rows(
          Biomass_Area = Sum_Biomass/Area) %>%
   select(-Area)
 
-write_csv(results, "results_biomass.csv")
+write_csv(results, "results_biomass_02.csv")
