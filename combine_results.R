@@ -9,7 +9,16 @@ area <- read_csv(
   "D:/OneDrive/repositories/inverlid/results_01_re.csv") %>%
   select(Area)
 
-tree <- read_csv()
+tree <- read_csv("D:/OneDrive/repositories/inverlid/results_01_re.csv") %>% 
+  select(Height_max_nodw, Height_ave_nodw, Height_med_nodw, Height_std_nodw,
+         Crown_max_nodw, Crown_ave_nodw, Crown_med_nodw, Crown_std_nodw,
+         Height_max_conif, Height_ave_conif, Height_med_conif, Height_std_conif,
+         Crown_max_conif, Crown_ave_conif, Crown_med_conif, Crown_std_conif,
+         Height_max_decid, Height_ave_decid, Height_med_decid, Height_std_decid,
+         Crown_max_decid, Crown_ave_decid, Crown_med_decid, Crown_std_decid)
+
+composition <- read_csv("D:/OneDrive/repositories/inverlid/results_01_re.csv") %>% 
+  select(Count_full, Count_conif, Count_decid, Count_deadw,)
 
 # area <- read_csv(
 #   "D:/OneDrive/repositories/inverlid/results_01_re.csv") %>% 
