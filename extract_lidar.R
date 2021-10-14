@@ -99,7 +99,9 @@ go_100_share <- go_100 %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 
 go_100_result <- sizes_go %>% 
@@ -112,6 +114,7 @@ go_100_result <- sizes_go %>%
   left_join(go_100_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -209,7 +212,9 @@ go_500_share <- go_500 %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 
 go_500_result <- sizes_go %>% 
@@ -222,6 +227,7 @@ go_500_result <- sizes_go %>%
   left_join(go_500_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -318,7 +324,9 @@ go_stream_share <- go_stream %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 
 go_stream_result <- sizes_go %>% 
@@ -331,6 +339,7 @@ go_stream_result <- sizes_go %>%
   left_join(go_stream_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -427,7 +436,9 @@ go_catch_share <- go_catch %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 
 go_catch_result <- sizes_go %>% 
@@ -440,6 +451,7 @@ go_catch_result <- sizes_go %>%
   left_join(go_catch_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -537,8 +549,9 @@ vy_100_share <- vy_100 %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
-
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 vy_100_result <- sizes_vy %>% 
   select(LocCode, vy_100) %>% 
@@ -550,6 +563,7 @@ vy_100_result <- sizes_vy %>%
   left_join(vy_100_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -647,7 +661,9 @@ vy_500_share <- vy_500 %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 
 vy_500_result <- sizes_vy %>% 
@@ -660,6 +676,7 @@ vy_500_result <- sizes_vy %>%
   left_join(vy_500_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -756,7 +773,9 @@ vy_stream_share <- vy_stream %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 
 vy_stream_result <- sizes_vy %>% 
@@ -769,6 +788,7 @@ vy_stream_result <- sizes_vy %>%
   left_join(vy_stream_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -865,7 +885,9 @@ vy_catch_share <- vy_catch %>%
                   Count_decid = 0,
                   Count_deadw = 0,
                   Count_snags = 0)) %>%
-  relocate(LocCode, Count_conif, Count_decid, Count_deadw, Count_snags)
+  mutate(Count_nodw = Count_conif + Count_decid) %>% 
+  relocate(LocCode, Count_conif, Count_decid, Count_nodw, 
+           Count_deadw, Count_snags)
 
 
 vy_catch_result <- sizes_vy %>% 
@@ -878,6 +900,7 @@ vy_catch_result <- sizes_vy %>%
   left_join(vy_catch_share) %>% 
   mutate(Share_conif = Count_conif/Count_full,
          Share_decid = Count_decid/Count_full,
+         Share_nodw = Count_nodw/Count_full,
          Share_deadw = Count_deadw/Count_full,
          Share_snags = Count_snags/Count_full,
          Cover_nodw = Crown_sum_nodw/Area,
@@ -889,6 +912,7 @@ vy_catch_result <- sizes_vy %>%
 total_result <- bind_rows(go_100_result, go_500_result,
                           go_catch_result, go_stream_result,
                           vy_100_result, vy_500_result,
-                          vy_catch_result, vy_stream_result)
+                          vy_catch_result, vy_stream_result) %>% 
+  replace_na(0)
 
-write_csv(total_result, "D:/OneDrive/repositories/inverlid/results_01_re.csv")
+write_csv(total_result, "D:/OneDrive/repositories/inverlid/results_02_re.csv")
