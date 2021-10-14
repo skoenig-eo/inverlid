@@ -137,3 +137,5 @@ result <- read_csv("D:/OneDrive/repositories/inverlid/results_biomass.csv") %>%
          LC_mire = mdw_w,
          LC_grassland = mdw_c + mdw_n + mdw_w) %>% 
   select(LocCode, River, Class, LC_meadow, LC_mire, LC_grassland)
+
+write_csv(result, "D:/OneDrive/repositories/inverlid/result_grassland.csv")
