@@ -3,7 +3,8 @@
 library(sf)
 library(tidyverse)
 
-all_blocks <- st_read("D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/all_blocks.gpkg")
+all_blocks <- st_read(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/all_blocks_fixed_clipped.gpkg")
 
 some_blocks <- all_blocks %>% slice(1:1000)
 
