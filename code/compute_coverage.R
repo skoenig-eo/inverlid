@@ -22,3 +22,44 @@ go_100 <- st_read(
   mutate(River = "GO", Class = 100) %>% 
   rename(Area_full = Area, Share_full = Share)
 
+go_500 <- st_read(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_500mB50.shp") %>% 
+  st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif", "decid"))) %>% 
+  group_by(LocCode) %>% 
+  summarise() %>% 
+  mutate(Area = as.numeric(st_area(geometry))) %>% 
+  left_join(sizes_go, by = "LocCode") %>% 
+  mutate(Share = Area/go_500) %>% 
+  st_drop_geometry() %>% 
+  as_tibble() %>% 
+  select(LocCode, Area, Share) %>% 
+  mutate(River = "GO", Class = 500) %>% 
+  rename(Area_full = Area, Share_full = Share)
+
+go_catch <- st_read(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_catch.shp") %>% 
+  st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif", "decid"))) %>% 
+  group_by(LocCode) %>% 
+  summarise() %>% 
+  mutate(Area = as.numeric(st_area(geometry))) %>% 
+  left_join(sizes_go, by = "LocCode") %>% 
+  mutate(Share = Area/go_catch) %>% 
+  st_drop_geometry() %>% 
+  as_tibble() %>% 
+  select(LocCode, Area, Share) %>% 
+  mutate(River = "GO", Class = "Catch") %>% 
+  rename(Area_full = Area, Share_full = Share)
+
+go_stream <- st_read(
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_StreamB50.shp") %>% 
+  st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif", "decid"))) %>% 
+  group_by(LocCode) %>% 
+  summarise() %>% 
+  mutate(Area = as.numeric(st_area(geometry))) %>% 
+  left_join(sizes_go, by = "LocCode") %>% 
+  mutate(Share = Area/go_stream) %>% 
+  st_drop_geometry() %>% 
+  as_tibble() %>% 
+  select(LocCode, Area, Share) %>% 
+  mutate(River = "GO", Class = "Stream") %>% 
+  rename(Area_full = Area, Share_full = Share)
