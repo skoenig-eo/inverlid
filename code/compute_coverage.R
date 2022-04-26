@@ -19,7 +19,7 @@ go_100 <- st_read(
   st_drop_geometry() %>% 
   as_tibble() %>% 
   select(LocCode, Area, Share) %>% 
-  mutate(River = "GO", Class = 100) %>% 
+  mutate(River = "GO", Class = "100") %>% 
   rename(Area_full = Area, Share_full = Share)
 
 go_500 <- st_read(
@@ -33,7 +33,7 @@ go_500 <- st_read(
   st_drop_geometry() %>% 
   as_tibble() %>% 
   select(LocCode, Area, Share) %>% 
-  mutate(River = "GO", Class = 500) %>% 
+  mutate(River = "GO", Class = "500") %>% 
   rename(Area_full = Area, Share_full = Share)
 
 go_catch <- st_read(
@@ -63,3 +63,7 @@ go_stream <- st_read(
   select(LocCode, Area, Share) %>% 
   mutate(River = "GO", Class = "Stream") %>% 
   rename(Area_full = Area, Share_full = Share)
+
+go_results <- bind_rows(go_100, go_500, go_catch, go_stream)
+write_csv(go_results,
+          "data/go_results_coverage.csv")
