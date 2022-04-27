@@ -71,7 +71,7 @@ write_csv(go_results,
 
 
 vy_100 <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_100mB50.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_100mB50.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif", "decid"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
@@ -85,7 +85,7 @@ vy_100 <- st_read(
   rename(Area_full = Area, Share_full = Share)
 
 vy_500 <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_500mB50.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_500mB50.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif", "decid"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
@@ -99,7 +99,7 @@ vy_500 <- st_read(
   rename(Area_full = Area, Share_full = Share)
 
 vy_catch <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_catch.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_catch.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif", "decid"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
@@ -113,7 +113,7 @@ vy_catch <- st_read(
   rename(Area_full = Area, Share_full = Share)
 
 vy_stream <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_StreamB50.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_StreamB50.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif", "decid"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
@@ -196,7 +196,7 @@ write_csv(go_results_c,
 
 
 vy_100_c <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_100mB50.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_100mB50.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
@@ -210,7 +210,7 @@ vy_100_c <- st_read(
   rename(Area_full = Area, Share_full = Share)
 
 vy_500_c <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_500mB50.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_500mB50.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
@@ -224,7 +224,7 @@ vy_500_c <- st_read(
   rename(Area_full = Area, Share_full = Share)
 
 vy_catch_c <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_catch.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_catch.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
@@ -238,7 +238,7 @@ vy_catch_c <- st_read(
   rename(Area_full = Area, Share_full = Share)
 
 vy_stream_c <- st_read(
-  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/GO_StreamB50.shp") %>% 
+  "D:/OneDrive/NPBW/Weitere Projekte/InverLid/Data/polygons/VY_StreamB50.shp") %>% 
   st_intersection(all_blocks %>% filter(TREE_CLASS %in% c("conif"))) %>% 
   group_by(LocCode) %>% 
   summarise() %>% 
