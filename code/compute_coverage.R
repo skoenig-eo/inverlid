@@ -81,7 +81,7 @@ vy_100 <- st_read(
   st_drop_geometry() %>% 
   as_tibble() %>% 
   select(LocCode, Area, Share) %>% 
-  mutate(River = "GO", Class = "100") %>% 
+  mutate(River = "VY", Class = "100") %>% 
   rename(Area_full = Area, Share_full = Share)
 
 vy_500 <- st_read(
@@ -95,7 +95,7 @@ vy_500 <- st_read(
   st_drop_geometry() %>% 
   as_tibble() %>% 
   select(LocCode, Area, Share) %>% 
-  mutate(River = "GO", Class = "500") %>% 
+  mutate(River = "VY", Class = "500") %>% 
   rename(Area_full = Area, Share_full = Share)
 
 vy_catch <- st_read(
@@ -109,7 +109,7 @@ vy_catch <- st_read(
   st_drop_geometry() %>% 
   as_tibble() %>% 
   select(LocCode, Area, Share) %>% 
-  mutate(River = "GO", Class = "Catch") %>% 
+  mutate(River = "VY", Class = "Catch") %>% 
   rename(Area_full = Area, Share_full = Share)
 
 vy_stream <- st_read(
@@ -123,7 +123,7 @@ vy_stream <- st_read(
   st_drop_geometry() %>% 
   as_tibble() %>% 
   select(LocCode, Area, Share) %>% 
-  mutate(River = "GO", Class = "Stream") %>% 
+  mutate(River = "VY", Class = "Stream") %>% 
   rename(Area_full = Area, Share_full = Share)
 
 vy_results <- bind_rows(vy_100, vy_500, vy_catch, vy_stream)
