@@ -126,7 +126,8 @@ vy_stream <- st_read(
   mutate(River = "VY", Class = "Stream") %>% 
   rename(Area_full = Area, Share_full = Share)
 
-vy_results <- bind_rows(vy_100, vy_500, vy_catch, vy_stream)
+vy_results <- bind_rows(vy_100, vy_500, vy_catch, vy_stream) %>% 
+  mutate(River = "VY")
 write_csv(vy_results,
           "data/vy_results_coverage.csv")
 
