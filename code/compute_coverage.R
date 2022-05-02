@@ -132,6 +132,11 @@ write_csv(vy_results,
           "data/vy_results_coverage.csv")
 
 
+# combine
+results <- bind_rows(go_results, vy_results)
+write_csv(results,
+          "data/results_coverage.csv")
+
 
 # only conif
 go_100_c <- st_read(
